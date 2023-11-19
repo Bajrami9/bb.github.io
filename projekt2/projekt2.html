@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     
+       <title>Document</title>
+</head>
+<body>
+       <style>
+              *{
+                    box-sizing: border-box;
+              }
+              .navbar.navbar-expand-lg{
+                     position:sticky;
+                     top: 0;
+                     left: 0;
+                     z-index: 1;
+                     font-size: 20px;
+                     font-family: trebuchet ms;
+                     font-weight: 700;
+                     padding: 30px;
+                     border-bottom: 4px solid blue;
+              }
+              .nav-link{
+                     margin: 0 20px;
+              }
+
+         .navbar-toggler{
+              border: 0;
+         }
+       
+         .navbar-toggler:focus,
+         .navbar-toggler:active,
+         .navbar-toggler-icon:focus{
+              border: 0;
+              box-shadow: none;
+              outline: none;
+         }
+         .toggler-icon{
+              width: 30px;
+              height: 3px;
+              background-color: rgb(0, 0, 0);
+              display: block;
+              transition: all 0.8s;
+              margin:  5px auto;
+         }
+         .navbar-toggler .top-bar{
+              transform: rotate(45deg);
+              transform-origin: 10% 10%;
+         }
+         .navbar-toggler .middle-bar{
+              opacity: 0;
+              filter: alpha(opacity=0);
+         }
+         .navbar-toggler .bottom-bar{
+              transform: rotate(-45deg);
+              transform-origin: 10% 10%;
+         }
+         .navbar-toggler.collapsed .top-bar{
+              transform: rotate(0);
+         }
+         .navbar-toggler.collapsed .middle-bar{
+              opacity: 1;
+              filter: alpha(opacity=100); 
+             }
+             .navbar-toggler.collapsed .bottom-bar{
+              transform: rotate(0);
+             }
+             label{
+              font-weight: 700;
+              font-family: trebuchet ms;
+              transform: translate(0px,6px);
+              cursor: pointer;
+              color: rgb(22, 8, 8);
+             }
+             .img-thumbnail{
+              transition: all 0.8s;
+              cursor: pointer;
+              
+             }
+             .img-thumbnail:hover{
+       box-shadow: 2px 2px 32px 2px black;
+       -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+           
+              transition: all 0.9s;
+             }
+             #a1{
+             color:black;
+             }
+             #a0{
+              color: silver;
+             }
+             .display-5{
+              font-family: trebuchet ms;
+              }
+              .nav-link{
+                     transition: transform .5s linear;
+                     position: relative;
+              }
+              .nav-link::before{
+                     position: absolute;
+                     content: '';
+                     top: 38px;
+                     left: 0;
+                     bottom: 0;
+                     background: blue;
+                     width: 100%;
+                     height: 3px;
+                     transform: scale(0);
+                     transform-origin: right;
+                     transition: transform .5s linear;
+              }
+              .nav-link:hover::before{
+                     transform: scale(1);
+                     transform-origin: left;
+                     transition: transform .5s linear;
+              }
+           .card{
+              border: 0;
+              transition: all 0.9s;
+             
+           }
+            i{
+              font-size: 50px;
+              margin-bottom: 10px;
+              color: blue;
+            }
+            #hr{
+              width: 200px;
+              margin: 15px auto;
+              background-color: blue;
+              height: 5px !important;
+            }
+            h3{
+              font-weight: 700;
+              font-family: trebuchet ms;
+            }
+            .card:hover{
+              background-color: rgb(0, 0, 0);
+              color: white;
+              transition:all 0.9s;
+              transform: scale(1.15);
+            }
+       
+            .about-container{
+              width: 90%;
+              height: 360px;
+              background-color: white;
+              box-shadow: 2px 2px 12px silver;
+              border-radius: 14px;
+              display: flex;
+              margin: 9% auto 10px auto;
+              position: relative;
+              justify-content: space-evenly;
+              align-items: center;
+              transform: translate(0px,-20px); 
+              transition: all 0.8s;
+            }
+            .about-container img {
+              height: 290px;
+              border: 5px solid blue;
+              transition: all 0.8s;
+              cursor: pointer;
+            }
+            .about-container img:hover{
+              transform: scale(1.15);
+              transition: all 0.8s;
+              box-shadow: 2px 2px 32px 2px rgb(0, 0, 0);
+            }
+            .about-text{
+              width: 550px;
+            }
+            .about-text p:nth-child(1){
+              color:blue;
+              font-family: trebuchet ms;
+              font-weight: bold;
+              font-size: 23px;
+              line-height: 0px;
+       }
+       .about-text p:nth-child(2){
+              color:silver;
+              font-size:16px;
+              font-family: trebuchet ms;
+              font-weight: bold;  
+       }
+       .about-text p:nth-child(3),
+       .about-text p:nth-child(4){
+              font-family: calibri;
+              font-size: 18px;
+       }
+       .about-container button {
+              width: 140px;
+              outline: none;
+              border: 0;
+              height: 40px;
+              border-radius: 6px;
+              font-family: trebuchet ms;
+              font-weight: 700;
+              background-color: blue;
+              color: white;
+              cursor: pointer;
+              transition: all 0.8s;
+       }
+       .about-container button:hover{
+              background-color: white;
+              color: blue;
+              transition: all 0.8s;
+       }
+       @media(max-width:973px){
+              .about-container {
+  width: 90%;
+  height: auto;
+  background-color: white;
+  box-shadow: 2px 2px 12px silver;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  margin: 9% auto 10px auto;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container img {
+  height: auto;
+  width: 60%; 
+  border: 2px solid blue;
+}
+
+.about-text {
+  width: 80%; 
+}
+.about-text p:nth-child(1),
+.about-text p:nth-child(2) {
+  font-size: 20px; 
+  margin: 20px;
+}
+
+.about-container button {
+  width: 140px;
+  margin-top: 10px;
+}
+       }
+    .form-control{
+       resize: none;
+    }
+    .d-flex p {
+       font-size: 18px;
+       padding-left: 18px;
+       font-family: trebuchet ms;
+
+    }
+    @media only screen and (max-width:600px){
+    }
+ 
+       </style>
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a href="#" class="navbar-brand">Front End-Developer</a>
+              <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav">
+                     <span class="toggler-icon top-bar"></span>
+                     <span class="toggler-icon middle-bar"></span>
+                     <span class="toggler-icon bottom-bar"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav" >
+                     <ul class="navbar-nav ml-auto">
+                            <li class="nav-item actve">
+                                   <a href="#" class="nav-link" id="a1" "data-page="Home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                   <a href="#" class="nav-link" id="a2" data-page="About">About</a>
+                            </li>
+                            <li class="nav-item">
+                                   <a href="#" class="nav-link" id="a3" data-page="Service">Service</a>
+                            </li>
+                            <li class="nav-item">
+                                   <a href="#contact" class="nav-link" id="a4" id="ff" data-page="Contact">Contact</a>
+                            </li>
+                     </ul>
+              </div>
+       </nav>
+       <div class="container" id="hd">
+              <div class="jumbotron" style="background-color: blue; border-bottom: 2px solid rgb(6, 6, 223); box-shadow: 2px 2px 12px silver; ">
+                     <h1 class="display-3 text-white text-center text-white">My skils</h1>
+                     <p class="text-white" style="font-family: trebuchet ms; font-weight: 700;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate accusantium sunt libero nisi molestias ipsum est in sequi sapiente nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati corporis laudantium porro ab eos totam eveniet, illum vel vero vitae.</p>
+                     <hr class="my-4">
+              </div>
+              <div class="row">
+                     <div class="col-lg-6">
+                            <img style="width: 400px;" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/357330330_1020221885818001_3169856210236038710_n.png?stp=dst-png_p206x206&_nc_cat=102&ccb=1-7&_nc_sid=510075&_nc_ohc=FaMO2tuAOFcAX8lt5Gt&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQO33_Ai3Cua_prmLB6sLll44fAZOgDe5JY1aHb5_CWYg&oe=656B4585" alt="" class="img-thumbnail">
+                     </div>
+                     <div class="col-lg-6">
+                            <h2 class="display-5  my-4" style="color:black;">Bajram Bajrami</h2>
+                            <div clas="mb-3">
+                                   <label>HTML</label>
+                                   <div class="progress">
+                                          <div class="progress-bar bg-dark" style="width: 100%;" role="progressbar" aria-valuenow="100" aria-valuemin="0"aria-valuemax="100">100%</div>
+                                   </div>
+                            </div>
+                            <div clas="mb-3">
+                                   <label>CSS</label>
+                                   <div class="progress">
+                                          <div class="progress-bar bg-dark" style="width: 70%;" role="progressbar" aria-valuenow="70" aria-valuemin="0"aria-valuemax="100">70%</div>
+                                   </div>
+                            </div>
+                            <div class="mb-3">
+                                   <label>BOOTSTRAP</label>
+                                   <div class="progress">
+                                          <div class="progress-bar bg-dark" style="width: 66%;"role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">66%</div>
+                                   </div>
+                            </div>
+                            <div class="mb-3">
+                                   <label>C#</label>
+                                   <div class="progress">
+                                          <div class="progress-bar bg-dark" style="width: 40%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                                   </div>
+                            </div>
+                       
+                     </div>
+              </div>
+       </div>
+       
+       <section id="Service1">
+              <div class="container" style="margin-top: 170px;" >
+                     <h1 class="text-center mt-6 display-3 fw-bold">Our Service</h1>
+                     <hr class="my-4" id="hr">
+                     <p class="text-center text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae laborum modi recusandae quam at?</p>
+                     <div class="row my-5">
+                            <div class="col-12 col-sm-6 col-md-4 m-auto">
+                                   <div class="card text-center my-3 shadow">
+                                          <div class="card-body">
+                                                 <i class="fas fa-network-wired"></i>
+                                          <h3>Networking</h3>
+                                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus recusandae mollitia nobis unde officiis repellendus facilis laborum quaerat, odit possimus.</p>
+                                          </div>
+                                   </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 m-auto">
+                                   <div class="card text-center my-3 shadow">
+                                          <div class="card-body">
+                                                 <i class="fas fa-laptop"></i>
+                                          <h3>Web Development</h3>
+                                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus recusandae mollitia nobis unde officiis repellendus facilis laborum quaerat, odit possimus.</p>
+                                          </div>
+                                   </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 m-auto">
+                                   <div class="card text-center my-3 shadow">
+                                          <div class="card-body">
+                                                 <i class="fas fa-shopping-cart"></i>
+                                          <h3>E-Commerce</h3>
+                                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus recusandae mollitia nobis unde officiis repellendus facilis laborum quaerat, odit possimus.</p>
+                                          </div>
+                                   </div>
+                            </div>
+                           
+                     </div>
+
+              </div>
+       </section>
+       <div class="container" id="about1">
+              <h1 class="text-center mt-6 display-3 fw-bold" style="margin-top:190px;">About me</h1>
+              <hr class="my-4" id="hr">
+              <p class="text-center text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae laborum modi recusandae quam at?</p>
+         </div>
+        
+<div class="about-container" i>
+<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/357330330_1020221885818001_3169856210236038710_n.png?stp=dst-png_p206x206&_nc_cat=102&ccb=1-7&_nc_sid=510075&_nc_ohc=FaMO2tuAOFcAX8lt5Gt&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQO33_Ai3Cua_prmLB6sLll44fAZOgDe5JY1aHb5_CWYg&oe=656B4585">
+<div class="about-text">
+       <p>About me</p>
+       <p>I am Desginer and Developer</p>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, recusandae vero. Officia ipsum dicta quasi nobis, iure blanditiis odio nostrum voluptatem eius repellendus, a quibusdam quis, dolore similique nesciunt dolores?</p>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, minima?</p>
+       <button>Hire me</button>
+       <button>Download CV</button>
+</div>
+</div>
+
+   
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+       <h1 class="text-center mt-6 display-3 fw-bold">Contact</h1>
+       <hr class="my-4" id="hr">
+       <p class="text-center text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae laborum modi recusandae quam at?</p>
+    
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-12 col-lg-8 pb-5">
+
+
+                   
+
+                    <form action="mail.php" method="post" style="padding-top: 50px;" id="contact">
+                        <div class="card border-primary rounded-0">
+                            <div class="card-header p-0">
+                                <div class="bg-info text-white text-center py-2">
+                                    <h3><i class="fa fa-envelope"></i> Contact Us</h3>
+                                    <p class="m-0">Welcome</p>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+
+                                <!--Body-->
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                                        </div>
+                                        <input type="email" class="form-control" id="nombre" name="email" placeholder="example@hotmail.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                        </div>
+                                        <textarea class="form-control" placeholder="Send Messages" required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <input type="submit" value="Send" class="btn btn-info btn-block rounded-0 py-2">
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                  
+
+
+                </div>
+	</div>
+</div>
+            
+   
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var contactLink = document.getElementById('a4');
+
+  
+  contactLink.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    
+    var contactSection = document.getElementById('contact');
+
+  
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+</script>
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+  var contactLink = document.getElementById('a1');
+
+  
+  contactLink.addEventListener('click', function(e) {
+    e.preventDefault(); 
+
+    
+    var contactSection = document.getElementById('hd');
+
+    
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+});  
+</script>
+<script>
+       document.addEventListener('DOMContentLoaded', function() {
+  var contactLink = document.getElementById('a2');
+
+  
+  contactLink.addEventListener('click', function(e) {
+    e.preventDefault(); 
+
+    
+    var contactSection = document.getElementById('about1');
+
+    
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+<script>
+         document.addEventListener('DOMContentLoaded', function() {
+  var contactLink = document.getElementById('a3');
+
+  
+  contactLink.addEventListener('click', function(e) {
+    e.preventDefault(); 
+   
+    var contactSection = document.getElementById('Service1');
+
+    
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
